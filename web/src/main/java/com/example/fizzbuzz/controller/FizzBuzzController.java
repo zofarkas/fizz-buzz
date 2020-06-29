@@ -18,8 +18,8 @@ import static java.util.stream.Collectors.toList;
 public class FizzBuzzController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FizzBuzzController.class);
-    public static final ResponseEntity<Object> BAD_REQUEST = ResponseEntity.badRequest().build();
-    public static final ResponseEntity<Object> INTERNAL_SERVER_ERROR = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    public static final ResponseEntity BAD_REQUEST = ResponseEntity.badRequest().build();
+    public static final ResponseEntity INTERNAL_SERVER_ERROR = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     private final FizzBuzzSequenceService service;
 
     public FizzBuzzController(FizzBuzzSequenceService service) {
