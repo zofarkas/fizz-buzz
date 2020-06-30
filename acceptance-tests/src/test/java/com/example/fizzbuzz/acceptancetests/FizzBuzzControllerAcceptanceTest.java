@@ -1,5 +1,6 @@
 package com.example.fizzbuzz.acceptancetests;
 
+import com.example.fizzbuzz.FizzBuzzApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+@SpringBootTest(classes = FizzBuzzApplication.class)
 @AutoConfigureMockMvc
 public class FizzBuzzControllerAcceptanceTest {
 
