@@ -4,19 +4,16 @@ import com.example.fizzbuzz.fragment.service.FizzBuzzFragment;
 import com.example.fizzbuzz.fragment.service.provider.FragmentProvider;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class FizzBuzzFragmentProvider extends AbstractDelegatingFragmentProvider {
 
-    private static final FizzBuzzFragment FRAGMENT = new FizzBuzzFragment("Fizz Buzz");
-
     public FizzBuzzFragmentProvider(FragmentProvider delegate) {
-        super(delegate);
+        super(delegate, position -> new FizzBuzzFragment("Fizz Buzz"));
     }
 
     @Override
-    Optional<FizzBuzzFragment> get(int position) {
-        return Optional.of(position)
-            .filter(pos -> pos % 3 == 0 && pos % 5 == 0)
-            .map(pos -> FRAGMENT);
+    Predicate<Integer> isApplicable() {
+        return position -> position % 3 == 0 && position % 5 == 0;
     }
 }
