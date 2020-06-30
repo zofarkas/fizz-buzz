@@ -52,7 +52,7 @@ I don't think that autowiring would cause trouble in this small application but 
 The initial idea was to simply implement the whole logic in a class with a for loop and with conditional statements in it.
 It would violate the Single Responsibility and Open-closed principles from SOLID, this is why I separated the logic into so many classes.
 In `AbstractDelegatingFragmentProvider`, I have implemented two Design Patterns.
- - Chain of responsibility, to let the providers either generate the Fizz Buzz fragment or pass it to the next handler in the chain
+ - Chain of responsibility, to let the providers to generate the Fizz Buzz fragment or pass it to the next handler in the chain
  - Template method, to specify the skeleton of the fragment resolution logic and let the implementations decide if they are applicable for the input
  
 `FizzBuzzSequenceService` has one implementation `DefaultFizzBuzzSequenceService`, to simply iterate from 1 to the last index, generate the fragments and return them as a sequence.
@@ -60,7 +60,7 @@ Another implementation could be added, which can parallelize this work, which mu
 
 I have created value objects as these are more meaningful than returning `String` and `List<String>`.
 
-### Response body
+##### Response body
 I have decided to create a response object with a list in it for the sequence instead of returning a plain list. 
 With this solution, additional data can be added to the response later without breaking backward compatibility.
 
